@@ -1,27 +1,26 @@
 package chemicalboy.base;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
 
-
-
-
-        JSoupConnection jsoup = new JSoupConnection();
+        JSoupConnection jSoupConnection = new JSoupConnection();
         BasicData basicData = new BasicData();
         FilesConnection filesConnection = new FilesConnection();
 
-        //TO CHECK
-        ArrayList<String> stringToCheck = new ArrayList<>();
 
-        stringToCheck.add("cat");
-        stringToCheck.add("dog");
-        stringToCheck.add("mice");
+        ArrayList<String> linksToSearch = basicData.takeWebs();
 
-        filesConnection.saveToFile(stringToCheck, basicData.getPath());
+        for(int i = 0; i < linksToSearch.size(); i++){
+
+            filesConnection.saveToFile(jSoupConnection.stringsFromWeb(linksToSearch.get(i)),basicData.getPath());
+
+            System.out.println("iteracja = " + i + " " + linksToSearch.get(i));
+        }
+
+
 
 
 

@@ -9,11 +9,11 @@ public class FilesConnection {
     public void saveToFile(ArrayList<String> stringsToSave, String path){
 
         try{
-            FileWriter fileWriter = new FileWriter(path, false);
+            FileWriter fileWriter = new FileWriter(path, true);
 
             for(String str:stringsToSave){
 
-                fileWriter.append(str).append(" ");
+                fileWriter.append(str).append("\n");
             }
 
             fileWriter.close();

@@ -10,23 +10,27 @@ import java.util.ArrayList;
 
 public class JSoupConnection {
 
-    public ArrayList<String> stringsFromWeb(ArrayList<String> webs) {
+    public ArrayList<String> stringsFromWeb(String web) {
 
         ArrayList<String> toBackFromWeb = new ArrayList<>();
 
-        Connection connect = Jsoup.connect("http://www.onet.pl/");
+        Connection connect = Jsoup.connect(web);
+
+        toBackFromWeb.add(web);
 
         try {
             Document document = connect.get();
 
-            Elements links = document.select("span.title");
+            Elements links = document.select("a");
             for (Element elem : links) {
-                System.out.println(elem.text());
+                toBackFromWeb.add(elem.text());
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        toBackFromWeb.add("");
 
         return toBackFromWeb;
 

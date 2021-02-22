@@ -6,7 +6,7 @@ public class BasicData {
 
     private String path = "basic_file.txt";
 
-    private String[] webTitles = {"onet", "wp", "interia"};
+    private String[] webTitles = {"onet","interia","wp"};
 
     private String begining = "http://www.";
 
