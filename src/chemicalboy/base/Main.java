@@ -11,22 +11,16 @@ public class Main {
         FilesConnection filesConnection = new FilesConnection();
 
 
-        ArrayList<String> linksToSearch = basicData.takeWebs();
+    /*    ArrayList<String> linksToSearch = basicData.takeWebs();
 
         for(int i = 0; i < linksToSearch.size(); i++){
 
-            filesConnection.saveToFile(jSoupConnection.stringsFromWeb(linksToSearch.get(i)),basicData.getPath());
+            filesConnection.saveToFile(jSoupConnection.stringsFromWeb(linksToSearch.get(i)),basicData.getPathBasis());
 
             System.out.println("iteracja = " + i + " " + linksToSearch.get(i));
-        }
+        }*/
 
-
-
-
-
-
-
-
+        filesConnection.reReadFile(basicData.getLenghtLine(), basicData.getLenghtWord(), basicData.getPathBasis(), basicData.getPathSecond());
 
     }
 }

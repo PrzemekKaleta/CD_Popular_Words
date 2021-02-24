@@ -4,13 +4,21 @@ import java.util.ArrayList;
 
 public class BasicData {
 
-    private String path = "basic_file.txt";
+    private String pathBasis = "basic_file.txt";
+
+    private String pathSecond = "second_file.txt";
+
+    private String pathThird = "third_File.txt";
 
     private String[] webTitles = {"onet","interia","wp"};
 
     private String begining = "http://www.";
 
     private String ends = ".pl/";
+
+    private int lenghtWord = 3;
+
+    private int lenghtLine = 25;
 
     public ArrayList<String> takeWebs(){
 
@@ -27,7 +35,23 @@ public class BasicData {
 
     }
 
-    public String getPath() {
-        return path;
+    public String getPathBasis() {
+        return pathBasis;
+    }
+
+    public String getPathSecond() {
+        return pathSecond;
+    }
+
+    public String getPathThird() {
+        return pathThird;
+    }
+
+    public int getLenghtWord() {
+        return lenghtWord;
+    }
+
+    public int getLenghtLine() {
+        return lenghtLine;
     }
 }
