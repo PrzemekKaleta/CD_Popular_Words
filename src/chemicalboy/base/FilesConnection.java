@@ -68,4 +68,47 @@ public class FilesConnection {
 
     }
 
+    public void deleteForbiddenWords(String pathForbidden, String pathRead, String pathSave){
+
+        try {
+
+            File fileRead = new File(pathRead);
+            File fileForbidden = new File(pathForbidden);
+            FileWriter fileWriter = new FileWriter(pathSave, false);
+
+            Scanner scanForbidden = new Scanner(fileForbidden);
+            Scanner scanFile = new Scanner(fileRead);
+
+            ArrayList<String> arrayForbidden = new ArrayList<>();
+
+            while (scanForbidden.hasNextLine()){
+                arrayForbidden.add(scanForbidden.nextLine());
+            }
+
+
+            while(scanFile.hasNextLine()) {
+
+                String simpeWord = scanFile.nextLine();
+
+                boolean isForbidden = arrayForbidden.stream().anyMatch(s -> s.equals(simpeWord));
+
+                if(!isForbidden){
+                    fileWriter.append(simpeWord).append("\n");
+                }
+
+            }
+
+            fileWriter.close();
+
+        }catch (FileNotFoundException ex){
+            System.out.println("nie znaleziono pliku");
+        }catch (IOException ex){
+            System.out.println("błąd zapisu");
+        }
+
+
+    }
+
+    
+
 }

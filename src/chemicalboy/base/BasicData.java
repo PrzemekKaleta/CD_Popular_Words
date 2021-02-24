@@ -10,6 +10,8 @@ public class BasicData {
 
     private String pathThird = "third_File.txt";
 
+    private String pathForbiddenWords = "forbidden_words.txt";
+
     private String[] webTitles = {"onet","interia","wp"};
 
     private String begining = "http://www.";
@@ -53,5 +55,9 @@ public class BasicData {
 
     public int getLenghtLine() {
         return lenghtLine;
+    }
+
+    public String getPathForbiddenWords() {
+        return pathForbiddenWords;
     }
 }

@@ -22,5 +22,7 @@ public class Main {
 
         filesConnection.reReadFile(basicData.getLenghtLine(), basicData.getLenghtWord(), basicData.getPathBasis(), basicData.getPathSecond());
 
+        filesConnection.deleteForbiddenWords(basicData.getPathForbiddenWords(), basicData.getPathSecond(), basicData.getPathThird());
+
     }
 }
