@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class FilesConnection {
 
@@ -109,6 +108,48 @@ public class FilesConnection {
 
     }
 
-    
+    public void countElements (String pathIn, String pathOut) {
+
+        Map<String, Long> resultMap = new HashMap<>();
+
+        try {
+
+            File file = new File(pathIn);
+            Scanner scanner = new Scanner(file);
+
+            List<String> wordList = new ArrayList<>();
+
+            while (scanner.hasNextLine()) {
+                wordList.add(scanner.nextLine());
+            }
+
+
+            wordList.forEach(e -> resultMap.put(e, resultMap.getOrDefault(e, 0L) + 1L));
+
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("nie znaleziono pliku");
+        }
+
+        try {
+            FileWriter fileWriter = new FileWriter(pathOut, false);
+            List<Map.Entry<String,Long>>list = new ArrayList<>(resultMap.entrySet());
+            list.sort(Map.Entry.comparingByValue());
+
+            for(Map.Entry<String,Long> entry : list){
+                fileWriter.append(entry.getKey() + " " + entry.getValue() + "\n");
+
+            }
+            fileWriter.close();
+
+
+        }catch (IOException ex){
+            System.out.println("błąd zapisu do pliku");
+        }
+
+
+    }
+
+
 
 }

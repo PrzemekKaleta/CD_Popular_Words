@@ -10,6 +10,8 @@ public class BasicData {
 
     private String pathThird = "third_File.txt";
 
+    private String pathEnd = "end_file.txt";
+
     private String pathForbiddenWords = "forbidden_words.txt";
 
     private String[] webTitles = {"onet","interia","wp"};
@@ -59,5 +61,9 @@ public class BasicData {
 
     public String getPathForbiddenWords() {
         return pathForbiddenWords;
+    }
+
+    public String getPathEnd() {
+        return pathEnd;
     }
 }
