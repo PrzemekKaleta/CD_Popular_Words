@@ -8,10 +8,10 @@ import java.util.*;
 
 public class FilesConnection {
 
-    public void saveToFile(ArrayList<String> stringsToSave, String path){
+    public void saveToFile(ArrayList<String> stringsToSave, String path, boolean saveAsNext){
 
         try{
-            FileWriter fileWriter = new FileWriter(path, true);
+            FileWriter fileWriter = new FileWriter(path, saveAsNext);
 
             for(String str:stringsToSave){
 
@@ -135,6 +135,8 @@ public class FilesConnection {
             FileWriter fileWriter = new FileWriter(pathOut, false);
             List<Map.Entry<String,Long>>list = new ArrayList<>(resultMap.entrySet());
             list.sort(Map.Entry.comparingByValue());
+                     
+
 
             for(Map.Entry<String,Long> entry : list){
                 fileWriter.append(entry.getKey() + " " + entry.getValue() + "\n");
